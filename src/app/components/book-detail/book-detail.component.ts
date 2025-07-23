@@ -7,7 +7,6 @@ import { InMemoryBookService } from '../../services/in-memory-book.service';
 
 @Component({
   selector: 'app-book-detail',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './book-detail.component.html'
 })

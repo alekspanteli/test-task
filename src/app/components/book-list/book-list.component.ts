@@ -6,7 +6,6 @@ import { InMemoryBookService } from '../../services/in-memory-book.service';
 
 @Component({
   selector: 'app-book-list',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './book-list.component.html'
 })
