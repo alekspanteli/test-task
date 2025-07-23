@@ -1,18 +1,22 @@
 <h2>Book Library</h2>
 <button (click)="addBook()">Add Book</button>
-<div *ngIf="notification">{{ notification }}</div>
+@if (notification) {
+  <div>{{ notification }}</div>
+}
 <table>
   <tr>
     <th>Title</th><th>Author</th><th>Year</th><th>Genre</th><th>Actions</th>
   </tr>
-  <tr *ngFor="let book of books">
-    <td>{{ book.title }}</td>
-    <td>{{ book.author }}</td>
-    <td>{{ book.year }}</td>
-    <td>{{ book.genre }}</td>
-    <td>
-      <button (click)="editBook(book.id)">Edit</button>
-      <button (click)="deleteBook(book.id)">Delete</button>
-    </td>
-  </tr>
+  @for (book of books; track book.id) {
+    <tr>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.year }}</td>
+      <td>{{ book.genre }}</td>
+      <td>
+        <button (click)="editBook(book.id)">Edit</button>
+        <button (click)="deleteBook(book.id)">Delete</button>
+      </td>
+    </tr>
+  }
 </table>
