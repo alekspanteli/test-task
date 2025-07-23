@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IBook } from '../../models/book.model';
 import { InMemoryBookService } from '../../services/in-memory-book.service';
@@ -15,13 +15,27 @@ export class BookListComponent {
 
   constructor(private bookService: InMemoryBookService, private router: Router) {
     this.bookService.getBooks().subscribe(data => this.books = data);
+
+    // Listen for navigation events to show notifications for add/edit
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Use window.history.state to get navigation state after navigation
+        if (window.history.state?.action === 'added') {
+          this.notification = 'Book added!';
+        } else if (window.history.state?.action === 'edited') {
+          this.notification = 'Book updated!';
+        }
+      }
+    });
   }
 
   editBook(id: number) {
+    // Navigate to edit page without state
     this.router.navigate(['/books', id]);
   }
 
   addBook() {
+    // Navigate to add page without state
     this.router.navigate(['/books', 'new']);
   }
 

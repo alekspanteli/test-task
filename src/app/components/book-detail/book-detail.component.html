@@ -6,4 +6,6 @@
   <label>Genre: <input formControlName="genre"></label><br>
   <button type="submit" [disabled]="form.invalid && form.touched">Save</button>
 </form>
-<div *ngIf="notification">{{ notification }}</div>
+@if (notification) {
+  <div>{{ notification }}</div>
+}
