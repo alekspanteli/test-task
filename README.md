@@ -1,59 +1,58 @@
-# AppName
+# Book Library 📚
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.2.
+A simple Angular application to manage a collection of books. This app allows users to list, add, edit, and delete books. Built using Angular best practices, including modular architecture, lazy loading, dependency injection, and reactive forms.
 
-## Development server
+> Generated with [Angular CLI](https://github.com/angular/angular-cli) version 20.1.2.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🚀 Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- List, create, update, and delete books.
+- Lazy-loaded `LibraryModule` at route `/library`.
+- Reactive forms for adding/editing books.
+- Two book service implementations (HTTP and in-memory).
+- Route resolver for preloading book data.
+- Global HTTP error handling with interceptor.
+- Confirmation on delete.
+- Notification and logging services.
+- (Optional) Unit tests for services/components.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🏗️ Project Structure Highlights
 
-```bash
-ng generate component component-name
-```
+| Module | Purpose |
+|--------|---------|
+| `CoreModule` | Singleton services like `BookService`, `LoggerService`, `NotificationService` |
+| `LibraryModule` | Feature module for managing books (lazy-loaded at `/library`) |
+| `SharedModule` | Reusable components, directives, and pipes (if needed) |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🔁 Book Service Implementations
 
-## Building
+| Service | Description |
+|---------|-------------|
+| `HttpBookService` | Connects to a mock REST API (e.g., json-server) via HTTP |
+| `InMemoryBookService` | Uses an in-app array for local testing/development |
 
-To build the project run:
+Easily switch between them by updating the provider in `CoreModule`.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 💡 Design Principles Used
 
-## Running unit tests
+- **SOLID principles**: Interfaces, single-responsibility services, dependency injection.
+- **Angular best practices**: Lazy loading, interceptors, route resolvers, reactive forms.
+- **Clean architecture**: Feature modules, service abstractions, testing support.
+- **Separation of concerns**: UI, logic, data access are all decoupled.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
+
+## 🧪 Testing
+
+To run unit tests using [Karma](https://karma-runner.github.io):
 
 ```bash
 ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
