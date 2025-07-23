@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { IBook } from '../models/book.model';
-import { IBookService } from './book.service';
 
 @Injectable({ providedIn: 'root' })
-export class InMemoryBookService extends IBookService {
+export class InMemoryBookService {
   private books$ = new BehaviorSubject<IBook[]>([
     { id: 1, title: '1984', author: 'George Orwell', year: 1949, genre: 'Dystopian' },
     { id: 2, title: 'The Hobbit', author: 'J.R.R. Tolkien', year: 1937, genre: 'Fantasy' }
