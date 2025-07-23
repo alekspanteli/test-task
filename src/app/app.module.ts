@@ -7,14 +7,14 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-    // Remove BookListComponent,
-    // Remove BookDetailComponent
+    // Remove AppComponent from here
+    // ...other declarations...
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AppComponent // Add AppComponent here
   ],
   providers: [],
   bootstrap: [AppComponent]
