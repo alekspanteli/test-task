@@ -1,0 +1,9 @@
+<h2>{{ bookId ? 'Edit Book' : 'Add Book' }}</h2>
+<form [formGroup]="form" (ngSubmit)="save()">
+  <label>Title: <input formControlName="title"></label><br>
+  <label>Author: <input formControlName="author"></label><br>
+  <label>Year: <input type="number" formControlName="year"></label><br>
+  <label>Genre: <input formControlName="genre"></label><br>
+  <button type="submit" [disabled]="form.invalid && form.touched">Save</button>
+</form>
+<div *ngIf="notification">{{ notification }}</div>
