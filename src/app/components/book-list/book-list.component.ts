@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { Router, NavigationExtras, NavigationEnd } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
 import { IBook } from '../../models/book.model';
 import { InMemoryBookService } from '../../services/in-memory-book.service';
 
 @Component({
   selector: 'app-book-list',
-  imports: [CommonModule],
   templateUrl: './book-list.component.html'
 })
 export class BookListComponent {
@@ -31,12 +29,12 @@ export class BookListComponent {
 
   editBook(id: number) {
     // Navigate to edit page without state
-    this.router.navigate(['/books', id]);
+    this.router.navigate(['/library', id]);
   }
 
   addBook() {
     // Navigate to add page without state
-    this.router.navigate(['/books', 'new']);
+    this.router.navigate(['/library', 'new']);
   }
 
   deleteBook(id: number) {

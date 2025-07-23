@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { IBook } from '../../models/book.model';
 import { InMemoryBookService } from '../../services/in-memory-book.service';
 
 @Component({
   selector: 'app-book-detail',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './book-detail.component.html'
 })
 export class BookDetailComponent implements OnInit {
@@ -43,12 +42,12 @@ export class BookDetailComponent implements OnInit {
     if (this.bookId) {
       this.bookService.updateBook(book).subscribe(() => {
         this.notification = 'Book updated!';
-        this.router.navigate(['/books']);
+        this.router.navigate(['/library']);
       });
     } else {
       this.bookService.addBook(book).subscribe(() => {
         this.notification = 'Book added!';
-        this.router.navigate(['/books']);
+        this.router.navigate(['/library']);
       });
     }
   }

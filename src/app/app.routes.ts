@@ -4,7 +4,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { BookResolver } from './resolvers/book.resolver';
 
 export const routes: Routes = [
-  { path: 'books', component: BookListComponent },
-  { path: 'books/:id', component: BookDetailComponent, resolve: { book: BookResolver } },
-  { path: '', redirectTo: '/books', pathMatch: 'full' }
+  { path: 'library', component: BookListComponent },
+  { path: 'library/:id', component: BookDetailComponent, resolve: { book: BookResolver } },
+  { path: '', redirectTo: '/library', pathMatch: 'full' }
 ];
